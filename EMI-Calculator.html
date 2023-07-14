@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width= , initial-scale=1.0" />
+    <title>EMI Calculator App</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .container {
+            margin: 30px auto 0px;
+            padding: 40px 20px;
+            justify-content: end;
+            display: block;
+            background-color: #e6e6e6;
+            width: 300px;
+            box-shadow: 5px 6px 11px #989898;
+        }
+        h1 {
+            text-align: center;
+            color: #222261;
+            font-size:32px;
+        }
+        label {
+            color: #212121;
+            font-size: 16px;
+            margin-top: 15px;
+            text-transform: uppercase;
+        }
+        input {
+            background-color: black;
+            background: white;
+            margin: 8px 0px 18px 0px;
+            padding: 8px;
+            width: 100%;
+            outline: none;
+            border-bottom: 2px solid #3b7cb6;
+            border-top: 0px;
+            border-left: 0px;
+            border-right: 0px;
+        }
+        .body-container {
+            padding: 70px 0;
+        }
+        .btn {
+               background: linear-gradient(45deg, #222261, #62aef2);
+                color: #fff;
+                padding: 8px 12px;
+                margin-top: 10px;
+                text-transform: uppercase;
+                outline: none;
+                border: none;
+                font-size: 16px;
+                cursor:pointer;
+            }
+            .btn:hover {
+               background: linear-gradient(145deg, #222261, #62aef2);
+    </style>
+</head>
+
+
+<body>
+    <div class="body-container">
+        <h1 id="title">EMI Calucation</h1>
+        <div class="container">
+            <label>Principle Amount : <br>
+                <input id="principal" type="number" placeholder="Please Enter total amount" /><br />
+            </label>
+            <label>Rate : <br>
+                <input id="interestRate" type="number" placeholder="Please Enter rate amount" /><br />
+            </label>
+            <label>No. of Months : <br>
+                <input id="month" type="number" placeholder="Please Enter the months" /><br />
+            </label>
+            <button class="btn" onclick="calculateEmi()">submit</button>
+        </div>
+    </div>
+
+    <script>
+        // Function
+      calculateEmi=()=> {
+            pri = document.getElementById('principal').value;
+            rate = document.getElementById('interestRate').value;
+            mon = document.getElementById('month').value;
+            //calculate EMI
+            const i = (pri * (rate * 0.01)) / mon;
+            let emi = ((pri / mon) + i).toFixed(2);
+            
+           principal.value= '';
+           interestRate.value= '';
+           month.value= '';
+            document.getElementById('title').innerHTML ="<h1>Emi of the given Amount is :</h1>" + emi;
+            
+        }
+    </script>
+</body>
+
+</html>
